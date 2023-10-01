@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Old Blues FC">
+  <main>
+    <h1>Leagues</h1>
+    <ul>
+      <li>
+        <a
+          class="sal-league"
+          href="https://www.southernamateurleague.co.uk/senior-division-2.html"
+          >Firsts</a
+        >
+      </li>
+      <li>
+        <a
+          class="sal-league"
+          href="https://www.southernamateurleague.co.uk/junior-division-4-south.html"
+          >Seconds</a
+        >
+      </li>
+      <li>
+        <a
+          class="sal-league"
+          href="https://www.southernamateurleague.co.uk/junior-division-6-south.html"
+          >Thirds</a
+        >
+      </li>
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 1300px;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  ul {
+    list-style: none;
+    padding: 2em 0;
+    display: flex;
+    gap: 3em;
+  }
+  li {
+    margin: 0;
+    font-size: 2rem;
+  }
+  a {
+	text-decoration: underline;
+  }
+</style>
