@@ -3,8 +3,8 @@
 
 <header>
   <a class="logo" href="/">
-    <img src="/old_blues_logo.png" height="80" width="80" />
-    <div>Old Blues Football Club</div>
+    <img class="logo-image" src="/old_blues_logo.png" height="80" width="80" />
+    <div class="logo-text">Old Blues Football Club</div>
   </a>
   <a href="/leagues">Leagues</a>
   <a href="https://www.truesportingcolours.com/old-blues-fc-180-c.asp">Shop</a>
@@ -15,8 +15,13 @@
     display: flex;
     width: 100%;
     background-color: var(--footer-colour);
-    font-size: 2rem;
-    gap: 2em;
+    font-size: 1.4rem;
+    gap: 1em;
+
+    @media (min-width: 728px) {
+      font-size: 2rem;
+      gap: 1.6em;
+    }
   }
   .logo {
     display: flex;
@@ -25,6 +30,12 @@
     padding: 2em 2em;
     font-weight: 800;
     color: black;
+  }
+  .logo-text {
+    display: none;
+    @media (min-width: 1300px) {
+      display: block;
+    }
   }
   a {
     align-self: center;
