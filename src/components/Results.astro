@@ -1,0 +1,115 @@
+---
+import {
+  firsts,
+  seconds,
+  thirds,
+  vets,
+  type Result,
+} from "../data/results.astro";
+
+const { team } = Astro.props;
+
+let results: Result[];
+switch (team.toLowerCase()) {
+  case "firsts":
+    results = firsts;
+    break;
+  case "seconds":
+    results = seconds;
+    break;
+  case "thirds":
+    results = thirds;
+    break;
+  case "vets":
+    results = vets;
+    break;
+  default:
+    results = [];
+}
+
+// const isOldBlues = (team: string) => team.includes("Old Blues");
+---
+
+<div class="container">
+  <h2>Results</h2>
+  <div class="results">
+    {
+      results.map(({ competition, date, home, away, homeScore, awayScore }) => (
+        <li class="card">
+          <div class="top-row">
+            <p>{date}</p>
+            <p class="competition">{competition}</p>
+          </div>
+          <div class="match">
+            <p class="right">{home}</p>
+            <p class="right">{homeScore}</p>
+            <span>-</span>
+            <p class="left">{awayScore}</p>
+            <p class="left">{away}</p>
+          </div>
+        </li>
+      ))
+    }
+  </div>
+  <a
+    class="all-results"
+    href="https://www.southernamateurleague.co.uk/senior-division-3.html"
+    >See all results</a
+  >
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    max-width: 600px;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .match {
+    display: grid;
+    grid-template-columns: 1fr 40px 32px 40px 1fr;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .competition {
+    font-size: 0.875rem;
+    color: #333;
+  }
+
+  .all-results {
+    font-size: 0.875rem;
+    margin-top: 1em;
+    text-decoration: underline;
+  }
+</style>

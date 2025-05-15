@@ -1,9 +1,9 @@
 {
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#021d40",
-    "titleBar.activeForeground": "#f3c80ae3",
+    "titleBar.activeForeground": "#c3a10be3",
     "titleBar.inactiveBackground": "#000e1f",
-    "titleBar.inactiveForeground": "#ffd20c91"
+    "titleBar.inactiveForeground": "#c3a10be3"
   },
   "eslint.validate": [
     "javascript",

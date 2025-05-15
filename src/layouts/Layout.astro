@@ -9,7 +9,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,12 +39,14 @@ const { title } = Astro.props;
       #da62c4 30%,
       white 60%
     );
-    --footer-colour: rgb(234, 234, 237);
+    --footer-colour: rgb(252, 252, 255);
   }
+
   html {
     font-family: system-ui, sans-serif;
     background-color: #f6f6f6;
   }
+
   body {
     margin: 0;
     padding: 0;
@@ -52,27 +54,41 @@ const { title } = Astro.props;
     display: grid;
     grid-template-rows: auto 1fr auto;
   }
+
   .container {
-    max-width: 1300px;
     margin: 0 auto;
-    padding: 4em;
+    padding: 20px 10px;
+    width: min(calc(100% - 20px), 1300px);
+
+    @media (min-width: 980px) {
+      padding: 40px 20px;
+      width: min(100% - 40px, 1300px);
+    }
   }
+
   a {
-    color: #021d40;
-    text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
+    text-decoration: none;
   }
   a:hover {
+    font-weight: 600;
     text-decoration: underline;
-    color: #aa8b00;
+    text-underline-offset: 3px;
   }
-  p {
-    font-size: 1.6rem;
+  a:visited {
+    color: inherit;
   }
 
   code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
   }
 </style>

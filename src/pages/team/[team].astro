@@ -1,0 +1,96 @@
+---
+import "@fontsource-variable/inter";
+import Layout from "../../layouts/Layout.astro";
+import Results from "../../components/Results.astro";
+import Fixtures from "../../components/Fixtures.astro";
+import Table from "../../components/Table.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { team: "firsts" } },
+    { params: { team: "seconds" } },
+    { params: { team: "thirds" } },
+    { params: { team: "vets" } },
+  ];
+}
+
+let { team } = Astro.params;
+team = team.charAt(0).toUpperCase() + team.slice(1);
+---
+
+<Layout title="Old Blues FC">
+  <main>
+    <div class="content">
+      <h1 class="heading">Old Blues {team}</h1>
+      <div class="results-fixtures-table">
+        <div class="results-fixtures">
+          <Results team={team} />
+          <Fixtures team={team} />
+        </div>
+        <div class="table">
+          <Table team={team} />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: "Inter Variable", sans-serif;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<style>
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .heading {
+    font-weight: 400;
+    font-size: 2.2rem;
+  }
+
+  .content {
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(252, 252, 255);
+    padding-top: 2em;
+    padding-bottom: 4em;
+  }
+
+  .results-fixtures-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    @media (min-width: 980px) {
+      flex-direction: row;
+      gap: 4em;
+    }
+  }
+
+  .table {
+    flex-basis: 100%;
+  }
+
+  .results-fixtures {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    gap: 2em;
+  }
+</style>

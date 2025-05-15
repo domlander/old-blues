@@ -1,0 +1,111 @@
+---
+import {
+  firsts,
+  seconds,
+  thirds,
+  vets,
+  type Fixture,
+} from "../data/fixtures.astro";
+
+const { team } = Astro.props;
+
+let fixtures: Fixture[];
+switch (team.toLowerCase()) {
+  case "firsts":
+    fixtures = firsts;
+    break;
+  case "seconds":
+    fixtures = seconds;
+    break;
+  case "thirds":
+    fixtures = thirds;
+    break;
+  case "vets":
+    fixtures = vets;
+    break;
+  default:
+    fixtures = [];
+}
+---
+
+<div class="container">
+  <h2>Fixtures</h2>
+  <div class="fixtures">
+    {
+      fixtures.map(({ competition, date, home, away }) => (
+        <li class="card">
+          <div class="top-row">
+            <p>{date}</p>
+            <p class="competition">{competition}</p>
+          </div>
+          <div class="match">
+            <p class="right">{home}</p>
+            <span>vs</span>
+            <p class="left">{away}</p>
+          </div>
+        </li>
+      ))
+    }
+  </div>
+  <a
+    class="all-fixtures"
+    href="https://www.southernamateurleague.co.uk/senior-division-3.html"
+    >See all fixtures</a
+  >
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fixtures {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    max-width: 600px;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .match {
+    display: grid;
+    grid-template-columns: 1fr 64px 1fr;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .competition {
+    font-size: 0.875rem;
+    color: #333;
+  }
+
+  .all-fixtures {
+    font-size: 0.875rem;
+    margin-top: 1em;
+    text-decoration: underline;
+  }
+</style>

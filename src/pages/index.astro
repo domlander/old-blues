@@ -1,16 +1,113 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import "@fontsource-variable/inter";
 ---
 
-<Layout title="Old Blues FC">
-  <main>
-    <p>Amateur men's football club based in Richmond, West London.</p>
-    <p>Old Blues have three squads playing in the <a href="https://www.southernamateurleague.co.uk/">SAL</a>.</p>
-  </main>
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Old Blues FC</title>
+  </head>
+  <body>
+    
+    <main>
+      <div class="top-container">
+        <div class="hero-container">
+          <img class="hero" src="/all.jpeg" />
+        </div>
+        <div class="content">
+          <div class="text-container">
+            <h1 class="heading">Old Blues FC</h1>
+            <p class="kicker">Amateur London football club</p>
+          </div>
+          <div class="buttons">
+            <a href="team/firsts" class="button">Firsts</a>
+            <a href="team/seconds" class="button">Seconds</a>
+            <a href="team/thirds" class="button">Thirds</a>
+            <a href="team/vets" class="button">Vets</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
 
 <style>
-  main {
-    width: 1300px;
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Inter Variable", sans-serif;
+  }
+
+  .hero-container {
+    background-color: #000;
+    position: absolute;
+  }
+
+  .hero {
+    opacity: 0.3;
+    height: 100vh;
+    height: 100svh;
+    width: 100vw;
+    width: 100svw;
+    object-fit: cover;
+  }
+
+  .content {
+    z-index: 1;
+    width: min(80vw, 600px);
+  }
+
+  .text-container {
+    color: #fff;
+    margin-top: 20vh;
+  }
+
+  .heading {
+    font-size: 2.8rem;
+    line-height: 1;
+
+    @media (min-width: 600px) {
+      font-size: 4rem;
+    }
+  }
+
+  .kicker {
+    font-size: 1.4rem;
+
+    @media (min-width: 600px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .buttons {
+    align-self: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+    font-size: 1.2rem;
+    margin-top: 2em;
+  }
+
+  .button {
+    background-color: #2b32ca;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
   }
 </style>
